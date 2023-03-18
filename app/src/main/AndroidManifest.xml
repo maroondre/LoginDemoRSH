@@ -16,7 +16,10 @@
         android:theme="@style/Theme.LoginDemo"
         tools:targetApi="n">
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".FrameFragment"
+            android:exported="false" />
+        <activity
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -8,19 +8,19 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import pack.logindemo.app.R
 import pack.logindemo.app.databinding.FragmentLoginBinding
-import pack.logindemo.app.databinding.FragmentSignUpBinding
 
-class SignUpFragment : Fragment() {
+class LoginFragment : Fragment() {
 
-    lateinit var binding : FragmentSignUpBinding
+    lateinit var binding : FragmentLoginBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
-        binding.regButton.setOnClickListener {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        binding.login.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.frameLayout, ProfilePageFragment()).commit()
         }
-        binding.regBack.setOnClickListener { parentFragmentManager.popBackStack() }
+        binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
         return binding.root
     }
+
 }
