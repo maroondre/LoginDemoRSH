@@ -2,10 +2,8 @@ package pack.logindemo.app.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import pack.logindemo.app.R
 import pack.logindemo.app.databinding.ItemsListOfRewardsBinding
