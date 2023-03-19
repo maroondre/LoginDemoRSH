@@ -9,8 +9,8 @@ import pack.logindemo.app.model.UserDTO
 class DBHelper(context : Context):SQLiteOpenHelper(context, "userDataProfile", null, 1) {
 
     private val CREATE_USER_TABLE = ("CREATE TABLE " + userTableName + "("
-            + userID + " INTEGER PRIMARY KEY AUTOINCREMENT," + userName + " TEXT,"
-            + userPhoneNumber + " TEXT," + userMPIN + " TEXT" + ")")
+            + userName + " TEXT PRIMARY KEY," + userLastName + " TEXT,"
+            + userPhoneNumber + " TEXT," + userMPIN + " TEXT," + userConfMPIN + " TEXT" + ")")
 
     private val DROP_USER_TABLE = "DROP TABLE IF EXISTS $userTableName"
 
@@ -22,20 +22,28 @@ class DBHelper(context : Context):SQLiteOpenHelper(context, "userDataProfile", n
         db?.execSQL(DROP_USER_TABLE)
     }
 
-    fun insertUserData(userDTO: UserDTO) {
+    fun insertUserData(userDTO: UserDTO) : Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
 
-        contentValues.put(userName,userDTO.userName)
-        contentValues.put(userMPIN, userDTO.mpin)
+        contentValues.put(userName,userDTO.firstName)
+        contentValues.put(userLastName,userDTO.lastName)
+        contentValues.put(userPhoneNumber,userDTO.mobileNumber)
+        contentValues.put(userMPIN, userDTO.mPin)
+        contentValues.put(userConfMPIN,userDTO.confirmMpin)
 
-        db.insert(userTableName, null, contentValues)
-        db.close()
+        val result = db.insert(userTableName, null, contentValues)
+        return if (result== (-1).toLong()) {
+            false
+        } else {
+            db.close()
+            true
+        }
     }
 
-    fun checkCredentials(userDTO: UserDTO) : Boolean{
+    fun checkCredentials(userNumber: String, userMPIN: String) : Boolean{
         val db = this.writableDatabase
-        val selectQuery = "select * from $userTableName where userName = ${userDTO.userName} and userPassword = ${userDTO.mpin}"
+        val selectQuery = "select * from $userTableName where userPhoneNumber = '$userNumber' and userMPIN = '$userMPIN'"
 
         val cursor = db.rawQuery(selectQuery,null)
         return if (cursor.count > 0) {
@@ -53,9 +61,10 @@ class DBHelper(context : Context):SQLiteOpenHelper(context, "userDataProfile", n
     companion object {
         private val userTableName = "user"
 
-        private val userID = "userId"
         private val userName = "userName"
+        private val userLastName = "userLastName"
         private val userPhoneNumber = "userPhoneNumber"
-        private val userMPIN = "userPassword"
+        private val userMPIN = "userMPIN"
+        private val userConfMPIN = "userConfirmMPIN"
     }
 }
