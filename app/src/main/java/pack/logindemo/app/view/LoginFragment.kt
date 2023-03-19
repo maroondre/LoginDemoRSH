@@ -11,13 +11,17 @@ import androidx.fragment.app.Fragment
 import pack.logindemo.app.R
 import pack.logindemo.app.databinding.FragmentLoginBinding
 import pack.logindemo.app.sqlite.DBHelper
+import pack.logindemo.app.utils.Utils
 
 class LoginFragment : Fragment() {
     lateinit var binding : FragmentLoginBinding
     lateinit var db : DBHelper
+    lateinit var utils: Utils
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        utils = Utils()
+        utils.checkEmptyField(binding.login, null, null, binding.inputMobileNumber, binding.inputMPIN, null)
         binding.login.setOnClickListener {
             loginUser()
         }

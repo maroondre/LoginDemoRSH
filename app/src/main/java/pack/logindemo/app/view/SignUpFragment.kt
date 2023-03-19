@@ -1,19 +1,18 @@
 package pack.logindemo.app.view
 
 import android.os.Bundle
-import android.text.TextUtils
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import pack.logindemo.app.R
-import pack.logindemo.app.databinding.FragmentLoginBinding
 import pack.logindemo.app.databinding.FragmentSignUpBinding
 import pack.logindemo.app.model.UserDTO
 import pack.logindemo.app.sqlite.DBHelper
 import pack.logindemo.app.utils.Utils
+
 
 class SignUpFragment : Fragment() {
     lateinit var binding: FragmentSignUpBinding
@@ -28,6 +27,7 @@ class SignUpFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
         db = DBHelper(context!!)
         utils = Utils()
+        utils.checkEmptyField(binding.regButton, binding.regFirstName, binding.regLastName, binding.regMobileNumber, binding.regMPIN, binding.regConfirmMPIN)
         binding.regButton.setOnClickListener {
             registerUser()
         }
@@ -36,10 +36,7 @@ class SignUpFragment : Fragment() {
     }
 
     fun registerUser() {
-        if (TextUtils.isEmpty(binding.regFirstName.text.toString()) || TextUtils.isEmpty(binding.regLastName.text.toString()) || TextUtils.isEmpty(binding.regMobileNumber.text.toString())
-            || TextUtils.isEmpty(binding.regMPIN.text.toString()) || TextUtils.isEmpty(binding.regConfirmMPIN.text.toString())) {
-            Toast.makeText(context!!, "Please fill all credentials field", Toast.LENGTH_LONG).show()
-        } else if (!utils.pinMatch(context!!, binding.regMPIN.text.toString(), binding.regConfirmMPIN.text.toString())) {
+        if (!utils.pinMatch(context!!, binding.regMPIN.text.toString(), binding.regConfirmMPIN.text.toString())) {
             return
         } else {
             val userDTO = UserDTO(

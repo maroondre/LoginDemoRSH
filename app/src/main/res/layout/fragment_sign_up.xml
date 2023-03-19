@@ -91,6 +91,7 @@
             android:fontFamily="sans-serif-black"
             android:paddingVertical="16dp"
             android:text="Register"
+            android:enabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
