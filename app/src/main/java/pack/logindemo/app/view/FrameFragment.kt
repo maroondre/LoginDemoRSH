@@ -37,25 +37,4 @@ class FrameFragment : Fragment() {
         }
         return binding.root
     }
-
-
-    fun onBackPressed() {
-        when (childFragmentManager.findFragmentById(R.id.frameLayout)) {
-            is LoginFragment, is SignUpFragment -> {
-                parentFragmentManager.popBackStack()
-            }
-            is ProfilePageFragment, is FrameFragment -> {
-                if (doubleBackToExitPressedOnce) {
-                    exitProcess(1)
-                }
-
-                this.doubleBackToExitPressedOnce = true
-                Toast.makeText(activity, "Press back again to exit app", Toast.LENGTH_SHORT)
-                    .show()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    doubleBackToExitPressedOnce = false
-                }, 2000)
-            }
-        }
-    }
 }

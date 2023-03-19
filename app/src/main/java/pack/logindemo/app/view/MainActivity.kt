@@ -6,6 +6,7 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import pack.logindemo.app.R
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
     var doubleBackToExitPressedOnce = false
@@ -17,21 +18,36 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-
-        val count = supportFragmentManager.backStackEntryCount
-        if (count == 0) {
-            if (doubleBackToExitPressedOnce) {
-                super.onBackPressed()
-                return
+        when (supportFragmentManager.findFragmentById(R.id.frameLayout)) {
+            is LoginFragment, is SignUpFragment -> {
+                supportFragmentManager.popBackStack()
             }
+            is ProfilePageFragment -> {
+                if (doubleBackToExitPressedOnce) {
+                    System.exit(1)
+                }
 
-            this.doubleBackToExitPressedOnce = true
-            Toast.makeText(this, "Press back again to exit..", Toast.LENGTH_SHORT).show()
-            Handler(Looper.getMainLooper()).postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
-        } else {
-            supportFragmentManager.popBackStack()
+                this.doubleBackToExitPressedOnce = true
+                Toast.makeText(this, "Press back again to exit..", Toast.LENGTH_SHORT).show()
+                Handler(Looper.getMainLooper()).postDelayed(
+                    { doubleBackToExitPressedOnce = false },
+                    2000
+                )
+            }
+            is FrameFragment -> {
+                if (doubleBackToExitPressedOnce) {
+                    super.onBackPressed()
+                    return
+                }
+
+                this.doubleBackToExitPressedOnce = true
+                Toast.makeText(this, "Press back again to exit..", Toast.LENGTH_SHORT).show()
+                Handler(Looper.getMainLooper()).postDelayed(
+                    { doubleBackToExitPressedOnce = false },
+                    2000
+                )
+            }
         }
-
     }
 
 }

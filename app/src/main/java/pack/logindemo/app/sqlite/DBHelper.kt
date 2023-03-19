@@ -60,15 +60,12 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "userDataProfile", 
 
     }
     fun checkNumberExists(userNumber: String): Boolean {
-        val db = this.readableDatabase
+        val db = this.writableDatabase
         val selectQuery =
             "select * from $userTableName where userPhoneNumber = '$userNumber'"
 
         val cursor = db.rawQuery(selectQuery, null)
-        cursor.moveToFirst();
-
-        // cursor.getInt(0) is 1 if column with value exists
-        return if (cursor.getInt(0) == 1) {
+        return if (cursor.count > 0) {
             cursor.close()
             db.close()
             true
@@ -77,7 +74,6 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "userDataProfile", 
             db.close()
             false
         }
-
     }
 
     fun viewData(userNumber: String) : Cursor {
