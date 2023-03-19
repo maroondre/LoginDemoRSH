@@ -19,6 +19,7 @@
             android:name=".FrameFragment"
             android:exported="false" />
         <activity
+            android:screenOrientation="fullSensor"
             android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>

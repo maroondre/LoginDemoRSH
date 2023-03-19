@@ -45,7 +45,8 @@ class ProfilePageFragment : Fragment() {
         db = DBHelper(context!!)
         cursor = db.viewData(getUserNumber.toString())
         cursor.moveToFirst()
-        binding.userName.text = "${cursor.getString(1)} + ${cursor.getString(2)}"
+        binding.userName.text = "${cursor.getString(1)} ${cursor.getString(2)}"
+        binding.userNumber.text = cursor.getString(3)
 
         viewModel.addItemsFromJSON(context!!)
         viewModel.rewardList.observe(viewLifecycleOwner) {
