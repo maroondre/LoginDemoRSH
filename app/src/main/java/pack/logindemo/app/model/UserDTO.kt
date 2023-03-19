@@ -1,6 +1,7 @@
 package pack.logindemo.app.model
 
 data class UserDTO(
+    val userId : Int = -1,
     val firstName : String,
     val lastName : String,
     val mobileNumber : String,
