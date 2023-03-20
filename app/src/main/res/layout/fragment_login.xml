@@ -16,7 +16,7 @@
         android:textSize="32sp"
         android:fontFamily="sans-serif-black"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/purple_700"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:digits="0123456789.,"
         android:hint="Enter mobile number"
+        android:maxLines="1"
         android:inputType="numberDecimal"
         android:maxLength="11"
         app:layout_constraintTop_toBottomOf="@id/loginTitle"
@@ -38,6 +39,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Enter MPIN"
+        android:maxLines="1"
+        android:digits="0123456789.,"
+        android:inputType="numberDecimal"
+        android:maxLength="4"
         app:layout_constraintTop_toBottomOf="@id/inputMobileNumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

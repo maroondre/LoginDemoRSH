@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         when (supportFragmentManager.findFragmentById(R.id.frameLayout)) {
-            is LoginFragment, is SignUpFragment -> {
+            is LoginFragment, is SignUpFragment, is DisplayPageFragment -> {
                 supportFragmentManager.popBackStack()
             }
             is ProfilePageFragment -> {

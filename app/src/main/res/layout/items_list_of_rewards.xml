@@ -40,6 +40,7 @@
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
                     android:padding="5dp"
+                    android:scaleType="fitXY"
                     app:layout_constraintBottom_toTopOf="@id/rewardDesc"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

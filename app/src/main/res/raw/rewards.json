@@ -1,5 +1,11 @@
 [
   {
+    "id": 0,
+    "name": "Lazada Free Shipping",
+    "description": "Enjoy 10% off on every purchase.",
+    "image": "https://www.ruthdelacruz.com/wp-content/uploads/2022/03/10-BIRTHDAY-PH-KV.jpg"
+  },
+  {
     "id": 1,
     "name": "Shopee 100Php Off",
     "description": "100Php off on Shopee with a minimum purchase of 1000Php!",
@@ -13,14 +19,74 @@
   },
   {
     "id": 3,
-    "name": "Shopee 100Php Off",
-    "description": "100Php off on Shopee with a minimum purchase of 1000Php!",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjAk8-sic9MUEOpyMJXpnQkbLz2wUMOmUvYep80A8FRbH3bVeb&s"
+    "name": "American Express Card Reward",
+    "description": "Avail AE card online to get exciting rewards.",
+    "image": "https://icm.aexp-static.com/loyalty/lsm/C23261315AMEX.png"
   },
   {
     "id": 4,
-    "name": "Zalora Free Delivery",
-    "description": "Free delivery on any order from Zalora.",
-    "image": "https://static-sg.zacdn.com/cms/zaloranow/ZNOW_FA_LOGOS_PRIMARY_BLACK.png"
+    "name": "Amazon Free Delivery",
+    "description": "Free delivery on every purchase thru app.",
+    "image": "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/1460058_2528409_us_ais_jump_in_rebrand_1500x300_us-en.jpg"
+  },
+  {
+    "id": 5,
+    "name": "American eGift Cards",
+    "description": "Gift card that you can avail online.",
+    "image": "https://images-na.ssl-images-amazon.com/images/G/01/GiftCards/Consumer/GCLP/2023/Q2_Refresh/VX-1125-Q2_GCLP_US_3C_eGC._CB595404327_.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Ephora Online Booking",
+    "description": "Book now using our app and received a 10% off.",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/41LmVOTTwwL._AC_SX368_.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Uber Eats Gift Card",
+    "description": "Hungry? Grab a sneaker using our uber eats app.",
+    "image": "https://m.media-amazon.com/images/I/31Nr1sexZ8L._AC_UL480_QL65_.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Starbucks eGift Card",
+    "description": "Received points using our eGift card.",
+    "image": "https://m.media-amazon.com/images/I/410p74CHlQL._AC_UL480_FMwebp_QL65_.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Adidas Flash Sale ",
+    "description": "Adidas flash sale on March 10.",
+    "image": "https://s3.eu-west-2.amazonaws.com/img.creativepool.com/files/candidate/portfolio/full/1742474.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Nike 25% off promo.",
+    "description": "Buy your new sneakers on discounted price.",
+    "image": "https://pbs.twimg.com/media/EU2FxnjXYAA41Nj.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Shein Black Friday Discount",
+    "description": "Shop now and use your discounted reward card.",
+    "image": "https://i.pinimg.com/originals/80/3b/b5/803bb5316013f2cacc36a774795cdd28.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Burger family bundle coupon",
+    "description": "Treat your family using this burger king bundle coupon.",
+    "image": "https://i.pinimg.com/736x/9f/57/ce/9f57ced326c225eecb42fd9005c31039.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Samsung christmas sale",
+    "description": "Give your loved ones a samsung experience.",
+    "image": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9ab53d41650225.57ae2978ef7bd.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Udemy discounted subscription reward",
+    "description": "Learn new things on a discounted subscription fee.",
+    "image": "https://i.ytimg.com/vi/mA6kD-ClXJY/maxresdefault.jpg"
   }
 ]

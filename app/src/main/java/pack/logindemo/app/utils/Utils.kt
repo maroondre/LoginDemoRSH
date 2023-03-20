@@ -13,7 +13,7 @@ class Utils {
         if(mpin.equals(confirmMpin)) {
             return true
         } else {
-            Toast.makeText(context, "MPIN does not match.", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "MPIN does not match.", Toast.LENGTH_SHORT).show()
             return false
         }
     }
@@ -21,7 +21,7 @@ class Utils {
     fun checkEmptyFields(context: Context, firstName: String, lastName: String, number: String, mpin: String, confirmMpin: String) : Boolean {
         if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(number)
             || TextUtils.isEmpty(mpin) || TextUtils.isEmpty(confirmMpin)) {
-            Toast.makeText(context, "Please fill all credentials field", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Please fill all credentials field", Toast.LENGTH_SHORT).show()
             return true
         } else {
             return false

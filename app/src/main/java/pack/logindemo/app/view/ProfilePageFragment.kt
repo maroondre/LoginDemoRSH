@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.OnBackPressedDispatcher
 import androidx.databinding.DataBindingUtil
@@ -22,7 +23,7 @@ import pack.logindemo.app.viewmodel.ProfilePageViewModel
 
 const val GET_USER_NUMBER = "get_user_phone_number"
 
-class ProfilePageFragment : Fragment() {
+class ProfilePageFragment : Fragment(), ProfileAdapter.passData {
     lateinit var binding: FragmentProfilePageBinding
     var viewModel: ProfilePageViewModel = ProfilePageViewModel()
     lateinit var db: DBHelper
@@ -52,9 +53,20 @@ class ProfilePageFragment : Fragment() {
         viewModel.rewardList.observe(viewLifecycleOwner) {
             binding.listRewards.apply {
                 layoutManager = LinearLayoutManager(activity)
-                adapter = ProfileAdapter(it)
+                adapter = ProfileAdapter(it!!, this@ProfilePageFragment)
             }
         }
+    }
+
+    override fun passData(title: String?, description: String, imageURL: String) {
+        val bundle = Bundle()
+        val displayPage = DisplayPageFragment()
+        bundle.putString("title", title)
+        bundle.putString("description", description)
+        bundle.putString("imageurl", imageURL)
+        displayPage.arguments = bundle
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, displayPage).addToBackStack(null).commit()
     }
 
 }

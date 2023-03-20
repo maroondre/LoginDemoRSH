@@ -21,7 +21,7 @@ import java.lang.StringBuilder
 
 class ProfilePageViewModel() : ViewModel() {
     var list: ArrayList<RewardsDTO> = ArrayList()
-    var rewardList: MutableLiveData<ArrayList<RewardsDTO>> = MutableLiveData()
+    var rewardList: MutableLiveData<ArrayList<RewardsDTO>?> = MutableLiveData()
 
     val exe = CoroutineExceptionHandler { _, _ ->
         rewardList.postValue(null)
@@ -37,7 +37,8 @@ class ProfilePageViewModel() : ViewModel() {
                     val itemObj = jsonArray.getJSONObject(i)
                     val desc = itemObj.getString("description")
                     val image = itemObj.getString("image")
-                    val rewards = RewardsDTO(null, desc, image)
+                    val title = itemObj.getString("name")
+                    val rewards = RewardsDTO(title, desc, image)
                     list.add(rewards)
                     rewardList.postValue(list)
                 }
